@@ -11,6 +11,11 @@ function makeWebAuthn(): WebAuthn {
     $rpName = option('rasteiner.k3-passkeys.rpName', site()->title());
     $rpId = option('rasteiner.k3-passkeys.rpID', kirby()->request()->url()->domain());
 
+    // trim port from domain 
+    // URI::domain() appends the port when non standard
+    // WebAuthn doesn't like that
+    $rpId = preg_replace('/:\d+$/', '', $rpId);
+
     $webAuthn = new WebAuthn(
         $rpName,
         $rpId,
