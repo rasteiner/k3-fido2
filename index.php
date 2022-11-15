@@ -120,6 +120,10 @@ Kirby::plugin('rasteiner/k3-passkeys', [
                         'passkeys' => json_encode($passkeys)
                     ]);
 
+                    foreach ($passkeys as &$k) {
+                        $k['credentialId'] = strtoupper($k['credentialId']->getHex());
+                    }
+
                     return [
                         'success' => true,
                         'passkeys' => $passkeys
