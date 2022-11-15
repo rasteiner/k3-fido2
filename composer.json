@@ -1,0 +1,12 @@
+{
+  "name": "rasteiner/k3-passkeys",
+  "authors": [
+    {
+      "name": "Roman Steiner",
+      "email": "roman@toastlab.ch"
+    }
+  ],
+  "require": {
+    "lbuchs/webauthn": "^1.1"
+  }
+}

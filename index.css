@@ -1,0 +1,8 @@
+.rs-passkey-button {
+  border: 1px solid #ccc;
+  margin: 1rem 0;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
