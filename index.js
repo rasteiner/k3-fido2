@@ -188,33 +188,6 @@ panel.plugin('rasteiner/k3-passkeys', {
   ],
   sections: {
     passkey: AccountViewComponent,
-    passkey2: {
-      props: {
-        label: String,
-      },
-      computed: {
-        isUsersView() {
-          return this.$view.id === 'users';
-        },
-        isAccountView() {
-          return this.$view.id === 'account';
-        }
-      },
-      render(h) {
-        let c;
-        if(this.isUsersView) {
-          c = h('div', 'Can\'t register  passkeys in users view');
-        } else if(this.isAccountView) {
-          c = h(AccountViewComponent, { props: { comp: this } });
-        } else {
-          c = h('k-box', { props: { theme: "negative" } }, 'You can use the passkey section only on user blueprints.');
-        }
-        return h('section', { class: 'k-passkey-section' }, [
-          h('k-headline', this.label),
-          c
-        ]);
-      },
-    }
   },
   icons: {
     'touch': '<g stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 0.5)"><path d="M5.5,15.5V7A2.5,2.5,0,0,1,8,4.5H8A2.5,2.5,0,0,1,10.5,7v8.5"></path> <path d="M2.876,11a6.5,6.5,0,1,1,10.248,0"></path> <line x1="7.5" y1="8.5" x2="8.5" y2="8.5"></line></g>',
