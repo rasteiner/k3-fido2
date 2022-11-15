@@ -121,7 +121,7 @@ const AccountViewComponent = {
 
         <k-button-group v-if="$view.id === 'account'" :buttons="[{
           text: 'Register new',
-          click: 'registerNew',
+          click: registerNew,
           icon: 'touch'
         }]" />
       </header>
