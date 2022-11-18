@@ -8,7 +8,7 @@ use lbuchs\WebAuthn\Binary\ByteBuffer;
 use lbuchs\WebAuthn\WebAuthn;
 
 function makeWebAuthn(): WebAuthn {
-    $rpName = option('rasteiner.k3-passkeys.rpName', site()->title());
+    $rpName = option('rasteiner.k3-passkeys.rpName', site()->title()->value());
     $rpId = option('rasteiner.k3-passkeys.rpID', kirby()->request()->url()->domain());
 
     // trim eventual username or password from domain 
