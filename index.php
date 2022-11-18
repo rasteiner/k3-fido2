@@ -155,9 +155,12 @@ Kirby::plugin('rasteiner/k3-passkeys', [
 
                     $input = kirby()->request()->data();
                     $email = $input['email'];
+                    $response = $input['response'];
 
-                    if($user = kirby()->user($email)) {
-                        $response = $input['response'];
+                    $userHandle = base64_decode($response['userHandle']);
+                    $user = $userHandle ? kirby()->user($userHandle) : kirby()->user($email);
+
+                    if($user) {
 
                         $credentialId = new ByteBuffer(base64_decode($response['id']));
                         $passkeys = getPasskeysFromUser($user);

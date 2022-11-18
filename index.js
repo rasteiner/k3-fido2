@@ -1,4 +1,6 @@
 let orig;
+const enableResidentKeys = true;
+
 /**
  * Convert a ArrayBuffer to Base64
  * @param {ArrayBuffer} buffer
@@ -27,10 +29,17 @@ function b64ToArrayBuffer(source) {
   return Uint8Array.from(atob(encoded), c => c.charCodeAt(0)).buffer;
 }
 
+
+
 const loginWithPasskeyComponent = {
   template: `
     <form class="k-login-with-passkey" @submit.prevent="submit">
       <k-fieldset :novalidate="true" :fields="fields" v-model="user"/>
+      <div v-if="resident" style="display: flex">
+        <button class="rs-passkey-button" type="submit">
+          <k-icon type="touch" />Login with Passkey
+        </button>
+      </div>
 
       <div class="k-login-buttons">
         <k-button
@@ -42,6 +51,7 @@ const loginWithPasskeyComponent = {
         </k-button>
 
         <k-button
+          v-if="!resident"
           icon="touch"
           class="k-login-button"
           type="submit"
@@ -55,11 +65,14 @@ const loginWithPasskeyComponent = {
     };
   },
   computed: {
+    resident() {
+      return enableResidentKeys;
+    },
     fields() {
-      return {
+      return this.resident ? {} : {
         email: {
           type: 'email',
-          required: true,
+          required: false,
           label: this.$t('email'),
           icon: 'user',
           autocomplete: 'email',
@@ -164,6 +177,7 @@ const AccountViewComponent = {
         return cred;
       });
       args.publicKey.user.id = b64ToArrayBuffer(args.publicKey?.user?.id);
+      console.log(args);
 
       // request credentials
       const creds = await navigator.credentials.create(args);
@@ -183,7 +197,6 @@ panel.plugin('rasteiner/k3-passkeys', {
   use: [
     (Vue) => {
       orig = Vue.component('k-login');
-      console.log(orig);
     }
   ],
   sections: {
@@ -207,14 +220,15 @@ panel.plugin('rasteiner/k3-passkeys', {
           ? h('div', [
             h(orig, { props: { methods: this.methods } }),
             h('hr'),
-            h('button', {
-              class: 'rs-passkey-button',
+            h('k-button', {
+              props: {
+                icon: 'touch',
+              },
               on: {
                 click: () => this.showPassword = false
               }
             }, [
-              h('k-icon', { props: { type: 'touch' } }),
-              'Login with Passkey'
+              'Use Passkey'
             ])
           ])
           : h(loginWithPasskeyComponent, { on: { cancel: () => this.showPassword = true } })
