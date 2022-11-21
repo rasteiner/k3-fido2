@@ -7,4 +7,19 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'lbuchs\\WebAuthn\\Attestation\\AttestationObject' => $vendorDir . '/lbuchs/webauthn/src/Attestation/AttestationObject.php',
+    'lbuchs\\WebAuthn\\Attestation\\AuthenticatorData' => $vendorDir . '/lbuchs/webauthn/src/Attestation/AuthenticatorData.php',
+    'lbuchs\\WebAuthn\\Attestation\\Format\\AndroidKey' => $vendorDir . '/lbuchs/webauthn/src/Attestation/Format/AndroidKey.php',
+    'lbuchs\\WebAuthn\\Attestation\\Format\\AndroidSafetyNet' => $vendorDir . '/lbuchs/webauthn/src/Attestation/Format/AndroidSafetyNet.php',
+    'lbuchs\\WebAuthn\\Attestation\\Format\\Apple' => $vendorDir . '/lbuchs/webauthn/src/Attestation/Format/Apple.php',
+    'lbuchs\\WebAuthn\\Attestation\\Format\\FormatBase' => $vendorDir . '/lbuchs/webauthn/src/Attestation/Format/FormatBase.php',
+    'lbuchs\\WebAuthn\\Attestation\\Format\\None' => $vendorDir . '/lbuchs/webauthn/src/Attestation/Format/None.php',
+    'lbuchs\\WebAuthn\\Attestation\\Format\\Packed' => $vendorDir . '/lbuchs/webauthn/src/Attestation/Format/Packed.php',
+    'lbuchs\\WebAuthn\\Attestation\\Format\\Tpm' => $vendorDir . '/lbuchs/webauthn/src/Attestation/Format/Tpm.php',
+    'lbuchs\\WebAuthn\\Attestation\\Format\\U2f' => $vendorDir . '/lbuchs/webauthn/src/Attestation/Format/U2f.php',
+    'lbuchs\\WebAuthn\\Binary\\ByteBuffer' => $vendorDir . '/lbuchs/webauthn/src/Binary/ByteBuffer.php',
+    'lbuchs\\WebAuthn\\CBOR\\CborDecoder' => $vendorDir . '/lbuchs/webauthn/src/CBOR/CborDecoder.php',
+    'lbuchs\\WebAuthn\\WebAuthn' => $vendorDir . '/lbuchs/webauthn/src/WebAuthn.php',
+    'lbuchs\\WebAuthn\\WebAuthnException' => $vendorDir . '/lbuchs/webauthn/src/WebAuthnException.php',
+    'rasteiner\\fido2\\Fido2' => $baseDir . '/classes/Fido2.php',
 );

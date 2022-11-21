@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "dev": "node scripts/build.cjs --dev",
+    "build": "node scripts/build.cjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.15.15",
+    "esbuild-vue": "^1.2.2",
+    "vue": "^2.7.14"
+  }
+}

@@ -1,11 +1,16 @@
 {
-  "name": "rasteiner/k3-passkeys",
+  "name": "rasteiner/k3-fido2",
   "authors": [
     {
       "name": "Roman Steiner",
       "email": "roman@toastlab.ch"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "rasteiner\\fido2\\": "classes"
+    }
+  },
   "require": {
     "lbuchs/webauthn": "^1.1"
   }
