@@ -12,7 +12,7 @@
       <div>
         <div v-if="passkeys.length">
           <k-items
-            :items="passkeys"
+            :items="passkeys.map(p => ({...p, options: []}))"
             :columns="{
               rpId: { label: 'Relying Party', type: 'text' },
               credentialId: { label: 'Credential ID', type: 'text' },
