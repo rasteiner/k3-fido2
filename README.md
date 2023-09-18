@@ -7,7 +7,7 @@
 1. Download folder and put it into `/site/plugins/`
 2. Add a `passkey` section to your user blueprint  
 
-    **site/users/admin.yml**
+    **site/blueprints/users/admin.yml**
     ```yml
     sections:
       passkey:
